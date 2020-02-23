@@ -14,7 +14,7 @@ namespace SimpleAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "Mateusz", "Hanie" };
+            return new string[] { "Mateusz", "Hania", "Joasia" };
         }
 
         // GET api/values/5
