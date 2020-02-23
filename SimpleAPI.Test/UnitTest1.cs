@@ -16,7 +16,7 @@ namespace SimpleAPI.Test
         {
             var valuesController = new ValuesController();
             var returnValue = valuesController.Get(5);
-            Assert.AreEqual(5, returnValue);
+            Assert.AreEqual("5", returnValue.Value);
         }
     }
 }
