@@ -12,7 +12,6 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-- script: echo ls
 
 - task: DotNetCoreCLI@2
   inputs:
