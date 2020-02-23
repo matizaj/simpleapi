@@ -16,9 +16,24 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 - script: echo $(Build.DefaultDirectory)
+
 - task: DotNetCoreCLI@2
-  displayName: test project $(buildConfiguration)
+  displayName: Test project $(buildConfiguration)
   inputs:
     command: test
     projects: '**/*.Test /*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: publish
+    publishWebProjects: false
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish 2
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'mySimpleAPI'
