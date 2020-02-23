@@ -12,7 +12,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-- task: DotNetCoreCli@2
+- task: DotNetCoreCLI@2
   inputs:
    command: test
    projects: '**/*Test/*.csproj'
