@@ -12,15 +12,10 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-
-
-
-
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-
-
+- script: echo $(Build.DefaultDirectory)
 - task: DotNetCoreCLI@2
   displayName: test project $(buildConfiguration)
   inputs:
